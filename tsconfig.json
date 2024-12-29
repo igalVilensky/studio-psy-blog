@@ -6,7 +6,7 @@
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "Preserve",
+    "module": "ESNext", // or "ES2022" if you prefer
     "moduleDetection": "force",
     "isolatedModules": true,
     "jsx": "preserve",
