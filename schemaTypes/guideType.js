@@ -1,0 +1,81 @@
+import {defineField, defineType} from 'sanity'
+
+export const guideType = defineType({
+  name: 'guide',
+  title: 'Guide',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: {source: 'title'},
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'description',
+      type: 'text',
+      title: 'Description',
+      description: 'A brief overview of what the guide is about.',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'benefits',
+      type: 'array',
+      title: 'What You Will Find in the Guide',
+      of: [{type: 'string'}],
+      description: 'List the key benefits or takeaways from the guide.',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'whatYouGet',
+      type: 'array',
+      title: 'What You Will Get',
+      of: [{type: 'string'}],
+      description: 'List the outcomes or results of using the guide.',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'targetAudience',
+      type: 'array',
+      title: 'For Whom Is This Guide?',
+      of: [{type: 'string'}],
+      description: 'Describe the target audience for this guide.',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'whyDownload',
+      type: 'array',
+      title: 'Why Download This Guide?',
+      of: [{type: 'string'}],
+      description: 'List reasons why someone should download this guide.',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'callToAction',
+      type: 'string',
+      title: 'Call to Action',
+      description: 'A short, compelling call to action (e.g., "Download Now!").',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'publishedAt',
+      type: 'datetime',
+      title: 'Published At',
+      initialValue: () => new Date().toISOString(),
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'image',
+      type: 'image',
+      title: 'Cover Image',
+      description: 'An image that represents the guide.',
+    }),
+  ],
+})
