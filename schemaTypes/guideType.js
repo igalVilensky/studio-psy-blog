@@ -26,6 +26,13 @@ export const guideType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'category',
+      type: 'string',
+      title: 'Category',
+      description: 'The category of the guide (e.g., Самопознание, Эмоциональный интеллект).',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'benefits',
       type: 'array',
       title: 'What You Will Find in the Guide',
@@ -76,6 +83,15 @@ export const guideType = defineType({
       type: 'image',
       title: 'Cover Image',
       description: 'An image that represents the guide.',
+    }),
+    defineField({
+      name: 'pdfFile',
+      type: 'file',
+      title: 'PDF File',
+      description: 'Upload the PDF file for this guide.',
+      options: {
+        accept: '.pdf',
+      },
     }),
   ],
 })
